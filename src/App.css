@@ -1,0 +1,201 @@
+body {
+  margin: 0;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to bottom, #0d0d2b, #1b1b3a);
+  color: white;
+  text-align: center;
+}
+
+.app {
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: black; 
+  color: white; 
+  overflow-x: hidden;
+}
+
+
+.title {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+
+.loading {
+  font-size: 1.5rem;
+  color: #ffd700;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+
+.card {
+  width: 90%;
+  height: auto;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 15px;
+  padding: 20px;
+  margin: 20px auto;
+  box-shadow: 0 0 25px rgba(0, 200, 255, 0.5);
+  transition: transform 0.4s ease;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.space-img {
+  width: 100%;      
+  height: auto;   
+  max-height: 50vh; 
+  object-fit: contain;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+
+.buttons {
+  margin-top: 20px;
+}
+
+button {
+  background: #0d6efd;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  margin: 5px;
+  font-size: 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: #1a75ff;
+  transform: scale(1.05);
+}
+
+.fade-slide {
+  animation: fadeSlide 1.2s ease;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+button:disabled {
+  background: gray;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px); 
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+}
+
+.overlay::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+@keyframes shootingStar {
+  0% {
+    transform: translateX(-100%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(200%) translateY(100vh);
+    opacity: 0;
+  }
+}
+
+.shooting-star {
+  position: absolute;
+  width: 2px;
+  height: 100px;
+  background: linear-gradient(white, transparent);
+  top: 0;
+  left: 0;
+  animation: shootingStar 4s linear infinite;
+}
+
+.date-picker {
+  margin: 15px auto;
+  text-align: center;
+}
+
+.date-picker input {
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+.starry-bg {
+  position: fixed;
+  inset: 0;
+  background: black;
+  overflow: hidden;
+  z-index: -2;
+}
+
+.stars {
+  width: 2px;
+  height: 2px;
+  background: transparent;
+  box-shadow: 
+    20px 30px white, 40px 120px white, 80px 200px white, 120px 90px white,
+    160px 300px white, 200px 150px white, 250px 400px white, 300px 220px white,
+    350px 100px white, 400px 350px white, 450px 50px white, 500px 270px white,
+    550px 180px white, 600px 90px white, 650px 300px white, 700px 150px white,
+    750px 400px white, 800px 250px white, 850px 50px white, 900px 350px white,
+    950px 200px white, 1000px 120px white, 1050px 300px white, 1100px 80px white,
+    1150px 400px white, 1200px 200px white; /* add more for density */
+  animation: blink 2s infinite alternate;
+}
+
+@keyframes blink {
+  from { opacity: 0.8; }
+  to   { opacity: 0.3; }
+}
